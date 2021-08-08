@@ -13,6 +13,8 @@ int main()
 	GPIOA ->OTYPER &= ~(1<<5);
 	GPIOA ->OSPEEDR &= ~(1<<5);
 	
+	//changes made for the sake of learning github
+	
 	
 
 }
