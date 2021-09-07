@@ -6,11 +6,11 @@
 int main()
 {
 
-		
 
 	
-	
+	GPIO_SET(GPIOA,13,INPUT_MODE);
 
+	
 
 
 }

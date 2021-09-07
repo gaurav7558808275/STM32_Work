@@ -5,7 +5,8 @@
 #define RCC_AHBENR 								(*((volatile unsigned long *)(0x40021000 + 0x14)))  // AHB BUS enable register
 #define RCC_APB2ENR 							(*((volatile unsigned long *)(0x40021000 + 0x18)))  // APB2 register pointer initilaised
 
-void GPIO_SET(GPIO_TypeDef* port, int pin, int mode);
+void GPIO_SET(GPIO_TypeDef* port, int pin, int mode);   // set the Pin
+int READ_STATUS(GPIO_TypeDef* port , int pin);          // IDR manipulation 
 void GPIO_Write_Pin(GPIO_TypeDef* port, int pin, int mode);
 void GPIO_Read_pin(GPIO_TypeDef* port, int pin, int mode);
 
@@ -32,11 +33,11 @@ void GPIO_Read_pin(GPIO_TypeDef* port, int pin, int mode);
 
 				// MODEy configuration // 
 
-#define INPUT_MODE  						0b0000   // Input Mode
+#define INPUT_MODE  						(uint32_t)0x00   // Input Mode
 #define OUTPUT_MODE_10					0b0001	 // Output Mode max speed 10Mhz
 #define OUTPUT_MODE_2						0b0010   // Output Mode max speed 2Mhz
 #define OUTPUT_MODE_50					0b0011	 // Output Mode max speed 50Mhz
-
+	
 				// CNFy conifig	uration //
 						// INPUT MODE //
 				

@@ -22,16 +22,30 @@ Dialog DLL:      TCM.DLL V1.46.0.0
  
 <h2>Project:</h2>
 C:\Users\HP\Desktop\Literature Study\STM32 resources\STM32 bluepill firmware\STM32_Work-master\GPIO_driver\GPIO_driver.uvprojx
-Project File Date:  09/06/2021
+Project File Date:  09/07/2021
 
 <h2>Output:</h2>
 *** Using Compiler 'V6.14.1', folder: 'G:\keil core\ARM\ARMCLANG\Bin'
 Build target 'Target 1'
 compiling main.c...
+gpio_drive.c(133): warning: variable 'status' is used uninitialized whenever 'if' condition is false [-Wsometimes-uninitialized]
+                        else if(port == GPIOC)
+                                ^~~~~~~~~~~~~
+gpio_drive.c(137): note: uninitialized use occurs here
+                        return (int)status;
+                                    ^~~~~~
+gpio_drive.c(133): note: remove the 'if' if its condition is always true
+                        else if(port == GPIOC)
+                             ^~~~~~~~~~~~~~~~~
+gpio_drive.c(123): note: initialize the variable 'status' to silence this warning
+                        unsigned int status;
+                                           ^
+                                            = 0
+1 warning generated.
 compiling gpio_drive.c...
 linking...
-Program Size: Code=608 RO-data=252 RW-data=0 ZI-data=1632  
-".\Objects\GPIO_driver.axf" - 0 Error(s), 0 Warning(s).
+Program Size: Code=912 RO-data=252 RW-data=0 ZI-data=1632  
+".\Objects\GPIO_driver.axf" - 0 Error(s), 1 Warning(s).
 
 <h2>Software Packages used:</h2>
 
@@ -58,9 +72,9 @@ Package Vendor: Keil
    * Component: ARM::CMSIS:CORE:5.5.0
 
    * Component: Keil::Device:Startup:1.0.0
-      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
       Source file:   Device\Source\system_stm32f10x.c
       Include file:  RTE_Driver\Config\RTE_Device.h
+      Source file:   Device\Source\ARM\startup_stm32f10x_md.s
       Source file:   Device\Source\ARM\STM32F1xx_OPT.s
 Build Time Elapsed:  00:00:01
 </pre>

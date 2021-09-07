@@ -4,7 +4,9 @@
 #include "gpio_drive.h"
 
 void GPIO_SET(GPIO_TypeDef* port, int pin, int mode)
-{
+{	
+/*_________________GPIOA selection execution_________________________*/	
+	
 	if (port == GPIOA)
 	{
 		if((mode  ==  ALT_F_OUT_PP)||(mode == ALT_F_OUT_OD))
@@ -25,6 +27,7 @@ void GPIO_SET(GPIO_TypeDef* port, int pin, int mode)
 			GPIOA-> CRH |= ((unsigned int) mode << 4*(pin-8));
 		}
 	}
+	
 /*__________________GPIOB selection exectution______________________*/
 	
 	else if (port == GPIOB)
@@ -69,7 +72,7 @@ void GPIO_SET(GPIO_TypeDef* port, int pin, int mode)
 			GPIOC-> CRH |= ((unsigned int) mode << 4*(pin-8));
 		}
 	}
-	
+/*	
 	else if (port == GPIOD)
 	{
 		if((mode  ==  ALT_F_OUT_PP)||(mode == ALT_F_OUT_OD))
@@ -110,12 +113,28 @@ void GPIO_SET(GPIO_TypeDef* port, int pin, int mode)
 			GPIOE-> CRH |= ((unsigned int) mode << 4*(pin-8));
 		}
 	}
-	
-		
-	
-		
+*/	
+				
+}
 
-
-
+int READ_STATUS(GPIO_TypeDef* port , int pin)
+{
+			
+			unsigned int status = 0x00;
+			if(port == GPIOA)
+			{
+				 status = GPIOA ->IDR &(1<<pin);	
+			}
+			else 
+			if(port == GPIOB)
+			{
+				status = GPIOB ->IDR &(1<<pin);
+			}
+			else if(port == GPIOC)
+			{
+				 status = GPIOC ->IDR &(1<<pin);
+			}
+			return (int)status;
+			
 }
 
