@@ -2,7 +2,7 @@
 #include "stm32f10x.h"
 
 #define RCC_APB1ENR 							(*((volatile unsigned long *)(0x40021000 + 0x1C)))	// APB1 enable register
-#define RCC_AHBENR 								(*((volatile unsigned long *)(0x40021000 + 0x14)))  // AHB BUS enable register
+#define RCC_AHBENR 							(*((volatile unsigned long *)(0x40021000 + 0x14)))  // AHB BUS enable register
 #define RCC_APB2ENR 							(*((volatile unsigned long *)(0x40021000 + 0x18)))  // APB2 register pointer initilaised
 
 void GPIO_SET(GPIO_TypeDef* port, int pin, int mode);   // set the Pin
